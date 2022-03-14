@@ -285,7 +285,6 @@ const alphabetArrEng = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', '
 const cardsWrapper = document.querySelector('.term-cards-wrapper')
 if (document.location.pathname == '/unilab-dictionary/index.html') {
     const dataToRender = data.filter(item => item.id < 3)
-
     renderData(dataToRender)
 }
 if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
@@ -352,7 +351,7 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
     })
 
 
-    searchFilter.addEventListener('click', () => {
+    searchFilter.addEventListener('change', () => {
         const searchFilterData = data.filter(item => item.keyword == searchFilter.value)
         searchCounter(searchFilterData)
         if (searchFilter.value !== 'default') {
@@ -364,6 +363,7 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
     const search = document.querySelector('#dictionary-search')
     search.addEventListener('input', (e) => {
         cardsWrapper.innerHTML = ''
+        paginationWrapper.style.display = 'none';
         const filteredData = data.filter(item => item.titleEng.includes(e.target.value) || item.titleGeo.includes(e.target.value))
         if(filteredData.length < 10 && filteredData.length !== 0) {
             searchCounter(filteredData)
