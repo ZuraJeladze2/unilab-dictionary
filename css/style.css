@@ -38,12 +38,13 @@ a{
 /* FONTS */
 /* variables */
 :root {
-    --main-bg-color: #FDFBF9E0;
+    --main-bg-color: #FDFEFF;
     --secondary-color: #E8E8E8;
-    --card-bg: #8C1E1F;
+    --card-bg: #343645;
     --main-font: #707070;
     --about-card-bg: #137B7C;
     --card-buttons: #17EBEC;
+    --details: #D4E2ED;
     --white: #fff;
     --main-font: #4F4646;
     --dark-text: #323232;
@@ -106,10 +107,9 @@ body{
     height: 38px;
 }
 .main-input-wrapper{
-    max-width: 1014px;
     width: 100%;
     margin: 0 auto;
-    padding: 30px 37px;
+    padding: 30px 0;
     position: relative;
 }
 .main-input{
@@ -117,13 +117,14 @@ body{
     height: 60px;
     border: 0;
     padding: 20px 20px 20px 55px;
-    border-radius: 30px;
+    border-radius: 10px;
+    border: 1px var(--details) solid;
 }
 .search-icon{
     position: absolute;
-    top: 50%;
-    left: 54px;
-    transform: translateY(-50%);
+    top: 52%;
+    left: 20px;
+    transform: translateY(-52%);
 }
 .main-input:focus{
     outline: 0;
@@ -140,8 +141,11 @@ body{
     font-family: 'BPG-regular';
 }
 .term-of-week .see-details{
-    background-color: #FBF5E7;
+    background-color: #F5F8FD;
     color: #323232;
+}
+.term-of-week .see-details:hover{
+    background-color: #F5F8FD;
 }
 .term-title{
     margin: 12px 0;
@@ -255,16 +259,16 @@ body{
 }
 .see-details{
     color: var(--white);
-    background-color: var(--card-bg);
+    background-color: var(--details);
     padding: 11px 15px 10px 16px;
     height: 40px;
     width: 140px;
-    border-radius: 5px;
+    border-radius: 5px; 
     font-family: 'firaGo-light';
     transition: .3s ease-out;
 }
 .see-details:hover{
-    opacity: .7;
+    background-color: #BFD0E0;
 }
 .term-cards-wrapper{
     display: flex;
@@ -397,6 +401,7 @@ body{
 }
 .page-number.active-page {
     background-color: #8A8FA3;
+    color: #fff;
 }
 #arrowLeft {
     pointer-events: none;
@@ -446,7 +451,6 @@ body{
 }
 .container .search-block {
     color: var(--main-font);
-    background-color: var(--secondary-color);
     padding: 20px;
 }
 .container .search-block .searchbar {
@@ -463,6 +467,9 @@ body{
     fill: var(--main-font);
 }
 .alphabet {
+    width: 843px;
+    max-width: 100%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
 }
@@ -474,19 +481,19 @@ body{
 .alphabet-wrapper span {
     font-size: var(--large);
     line-height: 24px;
-    color: #4F4646;
+    color: #8A8FA3;
     padding: 0 5px;
     cursor: pointer;
-    margin-right: 5px;
     transition: .3s ease-in-out;
 }
 .alphabet-wrapper span.active-letter{
     font-weight: bold;
+    color: #3F4C5F;
 }
 .alphabet-switcher{
     height: 40px;
     width: 40px;
-    background-color: #8C1E1F;
+    background-color: #8A8FA3;
     border-radius: 20px;
 }
 .switch-face {
@@ -538,20 +545,20 @@ select{
     transform: translate(-95%, -50%);
 }
 #filter, #sort {
-    border-radius: 13px;
-    background-color: var(--main-bg-color);
+    border-radius: 5px;
+    background-color: #F5F8FD;
     border: none;
     color: #4F4646;
 }
 .container .search-block input[type=text] {
-    background-color: #F5F5F5;
     width: 100%;
     height: 100%;
     border: none;
     outline: none;
     padding: 0 29.5rem 0 3.2rem;
     font-size: var(--small);
-    border-radius: 30px;
+    border-radius: 10px;
+    border: 1.5px solid var(--details);
 }
 
 .meet-team-wrapper {
