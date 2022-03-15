@@ -307,6 +307,17 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
     // generating 9 cards per page
     paginationRender(data)
     function paginationRender (arr) {
+        
+        const leftArrow = document.createElement('span')
+        leftArrow.setAttribute('class', 'pagination-left-arrow')
+        leftArrow.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="12.51" height="8.893" viewBox="0 0 12.51 8.893">
+            <g id="noun_Arrow_2884045" transform="translate(12.51) rotate(90)">
+                <path id="Path_3" data-name="Path 3" d="M8.307,12.51.207,6.66a.5.5,0,0,1,0-.81L8.307,0l.586.811L1.354,6.255,8.893,11.7Z" transform="translate(0 0)" fill="#8a8fa3" opacity="0.63"/>
+            </g>
+        </svg>
+        `
+        paginationWrapper.append(leftArrow)
         for (let i = 1; i <= roundedTermsNum; i++) {
             const pageNumber = document.createElement('span')
             pageNumber.setAttribute('class', 'page-number')
@@ -323,6 +334,22 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
                 renderData(paginationResult)
             })
         }
+        const rightArrow = document.createElement('span')
+        rightArrow.setAttribute('class', 'pagination-right-arrow')
+        rightArrow.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="12.51" height="8.893" viewBox="0 0 12.51 8.893">
+            <g id="noun_Arrow_2884045" transform="translate(0 8.893) rotate(-90)">
+                <path id="Path_3" data-name="Path 3" d="M8.307,0,.207,5.85a.5.5,0,0,0,0,.81l8.1,5.85.586-.811L1.354,6.255,8.893.81Z" fill="#8a8fa3" opacity="0.63"/>
+            </g>
+        </svg>
+        `
+        paginationWrapper.append(rightArrow)
+        leftArrow.addEventListener('click', () => {
+            console.log('left clicked')
+        })
+        rightArrow.addEventListener('click', () => {
+            console.log('right clicked')
+        })
     }
     // generating 9 cards per page
 
