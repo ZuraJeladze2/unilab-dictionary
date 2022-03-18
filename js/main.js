@@ -283,11 +283,11 @@ const alphabetArrGeo = ['ა', 'ბ', 'გ', 'დ', 'ე', 'ვ', 'ზ', 'თ', 
 const alphabetArrEng = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 const cardsWrapper = document.querySelector('.term-cards-wrapper')
-if (document.location.pathname == '/unilab-dictionary/index.html') {
+if (document.location.pathname == '/index.html') {
     const dataToRender = data.filter(item => item.id < 3)
     renderData(dataToRender)
 }
-if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
+if (document.location.pathname == '/dictionary.html') {
     const alphabetWrapper = document.querySelector('.alphabet-wrapper')
     const searchFilter = document.querySelector('#filter')
     const resultCounter = document.querySelector('.search-result-counter')

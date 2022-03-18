@@ -35,6 +35,10 @@ a{
     font-family: 'BPG-regular';
     src: url(../fonts/bpg/bpg_web_002_caps.ttf);
 }
+@font-face {
+    font-family: 'BPG-ghalo-caps-regular';
+    src: url(../fonts/bpg/bpg-glaho-web-caps-webfont.ttf);
+}
 /* FONTS */
 /* variables */
 :root {
@@ -139,17 +143,32 @@ body{
 .term-of-week h2{
     color: var(--white);
     font-family: 'BPG-regular';
+    font-size: 20px;
 }
 .term-of-week .see-details{
     background-color: #F5F8FD;
     color: #323232;
 }
 .term-of-week .see-details:hover{
-    background-color: #F5F8FD;
+    background-color: #E1E6EE;
+}
+.term-of-week-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.term-of-week-footer .hashtag-keywords{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+}
+.term-of-week .hashtag-keywords span:first-child{
+    margin-right: 20px;
 }
 .term-title{
     margin: 12px 0;
-    color: #FADB60;
+    color: var(--details);
     font-family: 'BPG-regular';
 }
 
@@ -243,32 +262,32 @@ body{
     font-size: var(--micro);
     line-height: 17px;
     font-style: italic;
+    margin-top: 12px;
+    cursor: pointer;
+}
+.card-footer .hashtag-keywords span:first-child{
+    margin-bottom: 4px;
+}
+.card-footer .hashtag-keywords span:hover{
+    color: #8A8FA3;
 }
 .hashtag-keywords span{
     font-family: 'firaGo-light-italic';
-}
-.button-wrapper{
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-.button-wrapper button{
-    width: 140px;
-    height: 40px;
-    border: 0;
+    transition: .3s ease-out;
 }
 .see-details{
-    color: var(--white);
+    color: var(--card-bg);
     background-color: var(--details);
     padding: 11px 15px 10px 16px;
-    height: 40px;
-    width: 140px;
+    min-height: 19px;
+    min-width: 110px;
     border-radius: 5px; 
     font-family: 'firaGo-light';
     transition: .3s ease-out;
+    white-space: nowrap;
 }
 .see-details:hover{
-    background-color: #BFD0E0;
+    background-color: #BED1E0;
 }
 .term-cards-wrapper{
     display: flex;
@@ -375,12 +394,17 @@ body{
     border-radius: 30px;
 }
 .about-title{
+    display: inline-block;
+    padding-bottom: 5px;
     font-size: var(--large);
     margin-bottom: 22px;
+    font-family: 'BPG-ghalo-caps-regular';
+    border-bottom: 3px solid #8A8FA3;
 }
 .about-info{
     max-width: 986px;
     width: 100%;
+    font-family: 'firaGo-regular';
 }
 .pagination {
     max-width: 100%;
@@ -407,8 +431,6 @@ body{
     pointer-events: none;
 }
 .footer {
-    background-color: var(--secondary-color);
-    /* color: var(--main-font); */
     height: 160px;
     margin-top: 40px;
     padding: 20px 140px;
