@@ -52,6 +52,7 @@ a{
     --white: #fff;
     --main-font: #4F4646;
     --dark-text: #323232;
+    --term-of-week-btn: #F5F8FD;
 
     /* font-size */
     --large: 20px;
@@ -146,8 +147,8 @@ body{
     font-size: 20px;
 }
 .term-of-week .see-details{
-    background-color: #F5F8FD;
     color: #323232;
+    background-color: var(--term-of-week-btn);
 }
 .term-of-week .see-details:hover{
     background-color: #E1E6EE;
@@ -413,6 +414,19 @@ body{
 }
 .pagination span {
     cursor: pointer;
+}
+.pagination-right-arrow, .pagination-left-arrow {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+.pagination-left-arrow{
+    transform: rotate(-90deg);
+    margin-right: 10px;
+}
+.pagination-right-arrow{
+    margin-left: 10px;
+    transform: rotate(-90deg);
 }
 .page-number{
     height: 26px;
