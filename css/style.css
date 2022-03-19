@@ -35,6 +35,10 @@ a{
     font-family: 'BPG-regular';
     src: url(../fonts/bpg/bpg_web_002_caps.ttf);
 }
+@font-face {
+    font-family: 'BPG-ghalo-caps-regular';
+    src: url(../fonts/bpg/bpg-glaho-web-caps-webfont.ttf);
+}
 /* FONTS */
 /* variables */
 :root {
@@ -140,20 +144,37 @@ body{
 .term-of-week h2{
     color: var(--white);
     font-family: 'BPG-regular';
+    font-size: 20px;
 }
 .term-of-week .see-details{
     color: #323232;
     background-color: var(--term-of-week-btn);
 }
 .term-of-week .see-details:hover{
-    background-color: var(--details);
+    background-color: #E1E6EE;
+}
+.term-of-week-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.term-of-week-footer .hashtag-keywords{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+}
+.term-of-week-footer .hashtag-keywords span:hover{
+    color: #8A8FA3;
+}
+.term-of-week .hashtag-keywords span:first-child{
+    margin-right: 20px;
 }
 .term-title{
     margin: 12px 0;
-    color: #FADB60;
+    color: var(--details);
     font-family: 'BPG-regular';
 }
-
 .term-detailed {
     color: var(--main-font);
     background-color: var(--secondary-color);
@@ -161,21 +182,17 @@ body{
     box-shadow: 2px 10px 16px #00000029;
     border-radius: 30px;
 }
-
 .term-detailed h2 {
     color: var(--main-font);
     font-size: var(--medium);
     line-height: 19px;
 }
-
 #term {
     color: var(--card-bg);
 }
-
 #termDesc {
     padding-bottom: 25px;
 }
-
 .term-detailed p {
     font-size: var(--medium);
     line-height: 19px;
@@ -244,32 +261,32 @@ body{
     font-size: var(--micro);
     line-height: 17px;
     font-style: italic;
+    margin-top: 12px;
+    cursor: pointer;
+}
+.card-footer .hashtag-keywords span:first-child{
+    margin-bottom: 4px;
+}
+.card-footer .hashtag-keywords span:hover{
+    color: #8A8FA3;
 }
 .hashtag-keywords span{
     font-family: 'firaGo-light-italic';
-}
-.button-wrapper{
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-.button-wrapper button{
-    width: 140px;
-    height: 40px;
-    border: 0;
+    transition: .3s ease-out;
 }
 .see-details{
     color: var(--card-bg);
     background-color: var(--details);
     padding: 11px 15px 10px 16px;
-    height: 40px;
-    width: 140px;
+    min-height: 19px;
+    min-width: 110px;
     border-radius: 5px; 
     font-family: 'firaGo-light';
     transition: .3s ease-out;
+    white-space: nowrap;
 }
 .see-details:hover{
-    background-color: #BFD0E0;
+    background-color: #BED1E0;
 }
 .term-cards-wrapper{
     display: flex;
@@ -310,7 +327,6 @@ body{
     flex-direction: column;
     min-height: 169px;
 }
-
 .flex-wrap-main {
     display: flex;
     flex-direction: column;
@@ -318,7 +334,6 @@ body{
     align-items: center;
     margin-top: 10px;
 }
-
 .card-header{
     margin-bottom: 12px;
     display: flex;
@@ -376,12 +391,17 @@ body{
     border-radius: 30px;
 }
 .about-title{
+    display: inline-block;
+    padding-bottom: 5px;
     font-size: var(--large);
     margin-bottom: 22px;
+    font-family: 'BPG-ghalo-caps-regular';
+    border-bottom: 3px solid #8A8FA3;
 }
 .about-info{
     max-width: 986px;
     width: 100%;
+    font-family: 'firaGo-regular';
 }
 .pagination {
     max-width: 100%;
@@ -421,8 +441,6 @@ body{
     pointer-events: none;
 }
 .footer {
-    background-color: var(--secondary-color);
-    /* color: var(--main-font); */
     height: 160px;
     margin-top: 40px;
     padding: 20px 140px;
@@ -453,7 +471,6 @@ body{
     background-color: var(--secondary-color);
     padding: 20px;
 }
-
 .container .about-block h2 {
     padding-bottom: 1rem;
 }
@@ -574,7 +591,6 @@ select{
     border-radius: 10px;
     border: 1.5px solid var(--details);
 }
-
 .meet-team-wrapper {
     display: flex;
     justify-content: center;
@@ -640,18 +656,115 @@ select{
     line-height: 22px;
     cursor: pointer;
 }
-
-
-
 /* responsive */
+@media (max-width:1140px) {
+    .container {
+        max-width: 991px;
+    }
+    .week-term-description {
+        margin-bottom: 10px;
+    }
+}
 @media (max-width: 1080px){
+    .container {
+        max-width: 868px;
+    }
     .term-cards-wrapper{
         justify-content: space-around;
     }
 }
-@media (max-width: 768px) {
+@media (max-width: 992px) {
+    .container {
+        max-width: 768px;
+    }
+}
+@media (max-width: 860px) {
+    .container {
+        max-width: 700px;
+    }
+}
+@media (max-width: 769px) {
+    .container{
+        max-width: 608px;
+    }
+    .term-of-week{
+        padding: 20px 10px 10px 20px;
+    }
+    .week-term-description{
+        white-space: inherit;
+        margin-bottom: 20px;
+        max-height: 63px
+    };
+    .term-of-week .see-details{
+        padding: 12px 4px 11px 5px;
+        font-size: var(--small);
+        min-width: 104px;
+        min-height: 40px;
+    }
     .alphabet-wrapper span {
         padding: 0 2px;
-
+    }
+}
+@media (max-width: 670px) {
+    .container {
+        max-width: 570px;
+    }
+    .nav-link {
+        font-size: var(--small);
+    }
+    .nav-link:last-child {
+        margin-left: 55px;
+    }
+}
+@media (max-width: 620px) {
+    .container {
+        max-width: 500px;
+    }
+}
+@media  (max-width: 580px) {
+    .container {
+        max-width: 450px;
+    }
+    .nav-link {
+        font-size: var(--small);
+        line-height: var(--small);
+    }
+    .nav-link:last-child {
+        margin-left: 12px;
+    }
+    .footer {
+        height: auto;
+        padding: 5px 31px 36px 33px;
+    }
+    .footer-info::before{
+        width: 233px;
+        margin: 0 auto 20px auto;
+    }
+}
+@media (max-width: 480px) {
+    .container {
+        max-width: 380px;
+    }
+    .nav-link {
+        font-size: var(--small);
+        line-height: var(--micro);
+    }
+    .nav-link:last-child {
+        margin-left: 8px;
+    }
+    .term-of-week-footer {
+        flex-direction: column;
+    }
+    .term-of-week-footer .hashtag-keywords {
+        align-self: flex-start;
+        margin-bottom: 10px;
+    }
+    .term-of-week-footer .see-details {
+        align-self: flex-end;
+    }
+}
+@media (max-width: 375px) {
+    .container {
+        max-width: 318px;
     }
 }
