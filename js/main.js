@@ -289,6 +289,7 @@ if (document.location.pathname == '/unilab-dictionary/index.html') {
 }
 if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
     const alphabetWrapper = document.querySelector('.alphabet-wrapper')
+    const alphabetSwitcher = document.querySelector('.alphabet-switcher')
     const searchFilter = document.querySelector('#filter')
     const resultCounter = document.querySelector('.search-result-counter')
     const messageWrapper = document.querySelector('.counter-wrapper')
@@ -297,7 +298,6 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
     const termsPerPage = 9
     const roundedTermsNum = Math.ceil(data.length / termsPerPage)
     let paginationResult
-
     // initiate first page on window load
     window.onload = () => {
         document.querySelector('.page-number').click()
@@ -357,6 +357,7 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
     alphabetGenerator(alphabetArrGeo)
     lettersOnClick()
     const switchFace = document.querySelector('.switch-face')
+    const alphabetBg = document.querySelector('.alphabet-bg')
     const switchTextEng = 'ENG'
     const switchTextGeo = 'ქარ'
     switchFace.innerText = switchTextEng
@@ -366,12 +367,14 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
             switchFace.innerText = switchTextGeo
             alphabetWrapper.innerText = ''
             alphabetGenerator(alphabetArrEng)
+            alphabetSwitcher.style.transform = 'translateX(34px)'
             lettersOnClick()
         }
         else {
             switchFace.innerText = switchTextEng
             alphabetWrapper.innerText = ''
             alphabetGenerator(alphabetArrGeo)
+            alphabetSwitcher.style.transform = 'translateX(0px)'
             lettersOnClick()
         }
 
