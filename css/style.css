@@ -290,7 +290,7 @@ body{
 }
 .term-cards-wrapper{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
@@ -521,11 +521,24 @@ body{
     font-weight: bold;
     color: #3F4C5F;
 }
+.alphabet-button-wrapper{
+    display: flex;
+    justify-content: flex-end;
+}
+.alphabet-bg{
+    height: 40px;
+    width: 75px;
+    background-color: var(--details);
+    border-radius: var(--large);
+    margin-left: auto;
+}
 .alphabet-switcher{
     height: 40px;
     width: 40px;
     background-color: #8A8FA3;
     border-radius: 20px;
+    transform: translateX(0px);
+    transition: .3s ease-out;
 }
 .switch-face {
     height: 100%;
@@ -677,6 +690,19 @@ select{
     .container {
         max-width: 768px;
     }
+    /* temporary */
+    .alphabet {
+        display: none;
+    }
+    /* temporary */
+    #filter {
+        top: 85px;
+        left: 180px;
+    }
+    #sort {
+        top: 85px;
+        left: 400px;
+    }
 }
 @media (max-width: 860px) {
     .container {
@@ -701,6 +727,9 @@ select{
         min-width: 104px;
         min-height: 40px;
     }
+    .term-card {
+        width: 100%;
+    }
     .alphabet-wrapper span {
         padding: 0 2px;
     }
@@ -714,6 +743,9 @@ select{
     }
     .nav-link:last-child {
         margin-left: 55px;
+    }
+    #dictionary-search{
+        padding-right: 0;
     }
 }
 @media (max-width: 620px) {
@@ -752,6 +784,20 @@ select{
     .nav-link:last-child {
         margin-left: 8px;
     }
+    #filter {
+        padding-left: 0;
+        width: 116px;
+        left: 86px;
+    }
+    #sort {
+        top: 120px;
+        left: 130px;
+        padding-left: 0;
+        width: 135px;
+    }
+    .term-cards-wrapper {
+        margin-top: 35px;
+    }
     .term-of-week-footer {
         flex-direction: column;
     }
@@ -763,8 +809,29 @@ select{
         align-self: flex-end;
     }
 }
-@media (max-width: 375px) {
+@media (max-width: 380px) {
     .container {
         max-width: 318px;
     }
+    .site-logo a svg {
+        width: 100px;
+    }
+    .nav-link:last-child {
+        margin-left: 0;
+        width: 90px;
+        display: block;
+    }
+    .nav-li:first-child {
+        margin-left: 10px;
+    }
+    
+    .term-description, .card-body, .card-header {
+        width: 240px;
+    }
+}
+@media (max-width: 320px) {
+    .nav-li:last-child {
+        margin-left: -15px;
+    }
+    
 }
