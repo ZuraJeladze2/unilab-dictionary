@@ -813,7 +813,7 @@ select{
     .container {
         max-width: 318px;
     }
-    .site-logo a svg {
+    .site-logo a img {
         width: 100px;
     }
     .nav-link:last-child {
