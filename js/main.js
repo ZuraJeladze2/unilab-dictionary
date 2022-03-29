@@ -288,6 +288,7 @@ if (document.location.pathname == '/unilab-dictionary/index.html') {
     renderData(dataToRender)
 }
 if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
+    const swiperWrapper = document.querySelector('.swiper-wrapper');
     const alphabetWrapper = document.querySelector('.alphabet-wrapper')
     const alphabetSwitcher = document.querySelector('.alphabet-switcher')
     const searchFilter = document.querySelector('#filter')
@@ -298,12 +299,32 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
     const termsPerPage = 9
     const roundedTermsNum = Math.ceil(data.length / termsPerPage)
     let paginationResult
+
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+      
+        // If we need pagination
+        
+      
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      
+        // And if we need scrollbar
+        // scrollbar: {
+        //   el: '.swiper-scrollbar',
+        // },
+        slidesPerView: 11,
+        spaceBetween: 5,
+        slidesPerGroup: 3
+      });
     // initiate first page on window load
     window.onload = () => {
         document.querySelector('.page-number').click()
     }
     // initiate first page on window load
-
     // generating 9 cards per page
     paginationRender(data)
     function paginationRender (arr) {
@@ -355,9 +376,10 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
 
 
     alphabetGenerator(alphabetArrGeo)
-    lettersOnClick()
+    swiperInit(alphabetArrGeo)
+
+    lettersOnClick('.letter-box')
     const switchFace = document.querySelector('.switch-face')
-    const alphabetBg = document.querySelector('.alphabet-bg')
     const switchTextEng = 'ENG'
     const switchTextGeo = 'ქარ'
     switchFace.innerText = switchTextEng
@@ -368,14 +390,15 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
             alphabetWrapper.innerText = ''
             alphabetGenerator(alphabetArrEng)
             alphabetSwitcher.style.transform = 'translateX(34px)'
-            lettersOnClick()
+            lettersOnClick('.letter-box')
         }
         else {
+            
             switchFace.innerText = switchTextEng
             alphabetWrapper.innerText = ''
             alphabetGenerator(alphabetArrGeo)
             alphabetSwitcher.style.transform = 'translateX(0px)'
-            lettersOnClick()
+            lettersOnClick('.letter-box')
         }
 
     })
@@ -453,13 +476,24 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
         }
     }
 
-    function lettersOnClick() {
-        const letterBoxes = document.querySelectorAll('.letter-box')
+    function lettersOnClick(someClass) {
+        const letterBoxes = document.querySelectorAll(someClass)
         letterBoxes.forEach(letterBox => {
             letterBox.addEventListener('click', function () {
                 letterBoxes.forEach(letter => letter.classList.remove('active-letter'))
                 letterBox.classList.add('active-letter')
             })
+        })
+    }
+
+
+    function swiperInit (arr) {
+        arr.forEach(el => {
+            const letter = document.createElement('div')
+            letter.setAttribute('class', 'swiper-slide')
+            letter.innerText = el
+            swiperWrapper.append(letter)
+            lettersOnClick('.swiper-slide')
         })
     }
 
