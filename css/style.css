@@ -84,7 +84,7 @@ body{
 }
 .header{
     padding: 40px 0;
-    box-shadow: 0px 3px 6px #00000029;
+    border-bottom: 1px solid #343645;
     margin-bottom: 40px;
 }
 .nav-ul{
@@ -169,6 +169,8 @@ body{
 }
 .term-of-week .hashtag-keywords span:first-child{
     margin-right: 20px;
+    font-family: 'firaGo-light-italic';
+    line-height: 14px;
 }
 .term-title{
     margin: 12px 0;
@@ -177,21 +179,31 @@ body{
 }
 .term-detailed {
     color: var(--main-font);
-    background-color: var(--secondary-color);
+    background-color: #343645;
     padding: 20px;
     box-shadow: 2px 10px 16px #00000029;
     border-radius: 30px;
 }
 .term-detailed h2 {
-    color: var(--main-font);
-    font-size: var(--medium);
-    line-height: 19px;
+    color: white;
+    font-size: 12px;
+    line-height: 24px;
+    opacity: 0.81;
+    font-family: "firaGo-regular", sans-serif;
+    font-weight: 100;
 }
 #term {
-    color: var(--card-bg);
+    color: #D4E2ED;
+    opacity: 1;
+    font-size: 18px;
+    margin-bottom: 30px;
+    font-family: 'BPG-ghalo-caps-regular', sans-serif;
+    line-height: 21px;
 }
 #termDesc {
-    padding-bottom: 25px;
+    margin-bottom: 25px;
+    color: #FFFFFF;
+    font-family: 'firaGo-medium', sans-serif;
 }
 .term-detailed p {
     font-size: var(--medium);
@@ -199,7 +211,14 @@ body{
     color: var(--main-font);
     padding: 12px 0;
 }
-.term-detailed .content-differ {
+.content-differ {
+    height: 2px;
+    background-color: #FFFFFF;
+    opacity: 0.8;
+    border: none;
+    margin-bottom: 20px;
+}
+.term-detailed {
     border: 2px var(--card-bg) solid;
     border-radius: 5px;
     color: transparent;
@@ -208,29 +227,26 @@ body{
 .term-detailed .example-flexbox {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 30px 46px 44px 0px;
+   
 }
 .term-detailed .example-flexbox p {
     font-size: var(--medium);
-    line-height: 19px;
-    color: var(--main-font);
+    line-height: 24px;
+    color: white;
     max-width: 578px;
+    opacity: 0.8;
+    font-family: "firaGo-regular", sans-serif;
 }
-.term-detailed .example-img {
-    max-width: 200px;
-    max-height: 200px;
-}
+
 .term-detailed .example-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    border-radius: 10px;
 }
 .term-detailed .hashtag-wrapper span {
-    font-size: var(--small);
-    line-height: 17px;
-    color: var(--main-font);
-    padding-right: 20px;
+    font-size: 12px;
+    line-height: 14px;
+    color: white;
+    margin-right: 20px;
+    opacity: 0.8;
 }
 .term-detailed .hashtag-wrapper span:last-child {
     padding-right: unset;
@@ -243,12 +259,14 @@ body{
 }
 .terms-button-wrapper a {
     margin-right: 10px;
-    background-color: var(--main-font);
-    color: var(--white);
-    font-size: var(--medium);
-    line-height: 19px;
-    padding: 10px;
-    border-radius: 20px;
+    background-color: white;
+    color: #343645;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 7px 15px;
+    border-radius: 5px;
+    border: 2px solid #3F4C5F;
+    font-family: 'firaGo-regular';
 }
 .terms-button-wrapper a:last-child {
     margin-right: unset;
@@ -259,10 +277,10 @@ body{
     justify-content: center;
     align-items: flex-start;
     font-size: var(--micro);
-    line-height: 17px;
-    font-style: italic;
     margin-top: 12px;
     cursor: pointer;
+    font-family: 'firaGo-light-italic';
+    line-height: 14px;
 }
 .card-footer .hashtag-keywords span:first-child{
     margin-bottom: 4px;
@@ -277,9 +295,8 @@ body{
 .see-details{
     color: var(--card-bg);
     background-color: var(--details);
-    padding: 11px 15px 10px 16px;
-    min-height: 19px;
-    min-width: 110px;
+    padding: 7px 15px;
+    
     border-radius: 5px; 
     font-family: 'firaGo-light';
     transition: .3s ease-out;
@@ -294,6 +311,10 @@ body{
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
+}
+.term-cards-wrapper h3 {
+    font-family: 'firaGo-extra-bold';
+    font-size: 16px;
 }
 .counter-wrapper{
     display: none;
@@ -327,6 +348,14 @@ body{
     flex-direction: column;
     min-height: 169px;
 }
+.term-header-underline {
+    margin-left: 20px;
+    margin-top: 15px;
+    background-color: #8A8FA3;
+    height: 2px;
+    border: none;
+    width: 175px;
+}
 .flex-wrap-main {
     display: flex;
     flex-direction: column;
@@ -341,6 +370,9 @@ body{
     min-height: 24px;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.card-header img {
+    margin-right: 10px;
 }
 .term-header-title{
     display: flex;
@@ -373,11 +405,9 @@ body{
     font-family: 'firaGo-medium';
 }
 .term-description{
-    max-height: 47px;
-    width: 297px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 14px;
+    line-height: 17px;
+    font-family: 'firaGo-medium', sans-serif;
 }
 .card-footer{
     display: flex;
@@ -647,7 +677,7 @@ select{
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #DADBDA;
+    /* background-color: #DADBDA; */
     padding: 120px 0 248px 0;
     box-shadow: inset 0px 3px 6px #00000029;
 }
@@ -655,19 +685,31 @@ select{
     font-size: 22px;
     color: var(--main-font);
     padding-bottom: 46px;
+    font-family: "firaGo-regular", sans-serif;
+    font-weight: 100;
+    position: absolute;
+    top: 30%;
+}
+.error-wrapper a {
+    position: absolute;
 }
 .error-wrapper button {
-    width: 195px;
-    height: 40px;
     background-color: var(--card-bg);
     color: var(--white);
     padding: 9px 21px;
     outline: none;
     border: none;
-    border-radius: 20px;
+    border-radius: 6px;
     font-size: 18px;
     line-height: 22px;
     cursor: pointer;
+    font-family: "firaGo-regular", sans-serif;
+}
+
+.background-svg {
+    position: absolute;
+    top: 17%;
+   
 }
 /* swiper */
 .swiper-wrapper{
@@ -767,10 +809,24 @@ select{
     #dictionary-search{
         padding-right: 0;
     }
+    .term-detailed .example-flexbox {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .term-detailed .example-img {
+        margin-bottom: 11px;
+    }
 }
 @media (max-width: 620px) {
     .container {
         max-width: 500px;
+    }
+    .terms-button-wrapper {
+        flex-wrap: wrap;
+    }
+    .terms-button-wrapper a {
+        margin: 10px;
     }
 }
 @media  (max-width: 580px) {
@@ -803,6 +859,8 @@ select{
     }
     .nav-link:last-child {
         margin-left: 8px;
+        font-family: 'firaGo-regular';
+        font-size: 12px;
     }
     #filter {
         padding-left: 0;
@@ -815,9 +873,8 @@ select{
         padding-left: 0;
         width: 135px;
     }
-    .term-cards-wrapper {
-        margin-top: 35px;
-    }
+    
+   
     .term-of-week-footer {
         flex-direction: column;
     }
@@ -844,9 +901,7 @@ select{
         width: 100px;
     }
     .nav-link:last-child {
-        margin-left: 0;
-        width: 90px;
-        display: block;
+        white-space: nowrap;
     }
     .nav-li:first-child {
         margin-left: 10px;
