@@ -282,7 +282,7 @@ body{
     font-family: 'firaGo-light-italic';
     line-height: 14px;
 }
-.card-footer .hashtag-keywords span:first-child{
+.card-footer .hashtag-keywords a:first-child{
     margin-bottom: 4px;
 }
 .card-footer .hashtag-keywords span:hover{
@@ -407,6 +407,9 @@ body{
 .term-description{
     font-size: 14px;
     line-height: 17px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-family: 'firaGo-medium', sans-serif;
 }
 .card-footer{
@@ -780,7 +783,6 @@ select{
         padding: 20px 10px 10px 20px;
     }
     .week-term-description{
-        white-space: inherit;
         margin-bottom: 20px;
         max-height: 63px
     };
@@ -874,8 +876,9 @@ select{
         padding-left: 0;
         width: 135px;
     }
-    
-   
+    .term-cards-wrapper{
+        margin-top: 50px;
+    }
     .term-of-week-footer {
         flex-direction: column;
     }
