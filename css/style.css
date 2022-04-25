@@ -45,6 +45,7 @@ a{
     --main-bg-color: #FDFEFF;
     --secondary-color: #E8E8E8;
     --card-bg: #343645;
+    --navigation-hover-state: #8A8FA3;
     --main-font: #707070;
     --about-card-bg: #137B7C;
     --card-buttons: #17EBEC;
@@ -93,11 +94,11 @@ body{
     font-family: 'firaGo-regular';
 }
 .nav-link{
-    color: var(--main-font);
+    color: var(--card-bg);
     transition: .3s ease-out;
 }
 .nav-link:hover{
-    opacity: .7;
+    color: var(--navigation-hover-state);
 }
 .nav-link:last-child{
     margin-left: 92px;
