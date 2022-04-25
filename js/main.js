@@ -524,8 +524,8 @@ function renderData(array) {
                   </div>
                   <div class="card-footer">
                       <div class="hashtag-keywords">
-                          <span>#${element.hashTags[0]}</span>
-                          <span>#${element.hashTags[1]}</span>
+                        <a href="dictionary.html"><span>#${element.hashTags[1]}</span></a>
+                        <a href="dictionary.html"><span>#${element.hashTags[0]}</span></a>
                       </div>
                       <div class="button-wrapper">
                           <a href="#" class="see-details">ნახე სრულად</a>
