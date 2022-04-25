@@ -45,6 +45,7 @@ a{
     --main-bg-color: #FDFEFF;
     --secondary-color: #E8E8E8;
     --card-bg: #343645;
+    --navigation-hover-state: #8A8FA3;
     --main-font: #707070;
     --about-card-bg: #137B7C;
     --card-buttons: #17EBEC;
@@ -93,11 +94,11 @@ body{
     font-family: 'firaGo-regular';
 }
 .nav-link{
-    color: var(--main-font);
+    color: var(--card-bg);
     transition: .3s ease-out;
 }
 .nav-link:hover{
-    opacity: .7;
+    color: var(--navigation-hover-state);
 }
 .nav-link:last-child{
     margin-left: 92px;
@@ -282,7 +283,7 @@ body{
     font-family: 'firaGo-light-italic';
     line-height: 14px;
 }
-.card-footer .hashtag-keywords span:first-child{
+.card-footer .hashtag-keywords a:first-child{
     margin-bottom: 4px;
 }
 .card-footer .hashtag-keywords span:hover{
@@ -407,6 +408,9 @@ body{
 .term-description{
     font-size: 14px;
     line-height: 17px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     font-family: 'firaGo-medium', sans-serif;
 }
 .card-footer{
@@ -780,7 +784,6 @@ select{
         padding: 20px 10px 10px 20px;
     }
     .week-term-description{
-        white-space: inherit;
         margin-bottom: 20px;
         max-height: 63px
     };
@@ -874,8 +877,9 @@ select{
         padding-left: 0;
         width: 135px;
     }
-    
-   
+    .term-cards-wrapper{
+        margin-top: 50px;
+    }
     .term-of-week-footer {
         flex-direction: column;
     }
