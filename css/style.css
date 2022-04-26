@@ -143,9 +143,8 @@ body{
     border-radius: 10px;
 }
 .term-of-week h2{
+    font: normal normal 400 24px BPG-regular;
     color: var(--white);
-    font-family: 'BPG-regular';
-    font-size: 20px;
 }
 .term-of-week .see-details{
     color: #323232;
@@ -170,13 +169,14 @@ body{
 }
 .term-of-week .hashtag-keywords span:first-child{
     margin-right: 20px;
-    font-family: 'firaGo-light-italic';
     line-height: 14px;
 }
 .term-title{
     margin: 12px 0;
     color: var(--details);
-    font-family: 'BPG-regular';
+}
+.term-title strong, .term-title span {
+    font: normal normal 400 19px BPG-regular;
 }
 .term-detailed {
     color: var(--main-font);
@@ -282,6 +282,9 @@ body{
     cursor: pointer;
     font-family: 'firaGo-light-italic';
     line-height: 14px;
+}
+.term-of-week-footer .hashtag-keywords a{
+    opacity: .8;
 }
 .card-footer .hashtag-keywords a:first-child{
     margin-bottom: 4px;
