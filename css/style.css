@@ -175,6 +175,9 @@ body{
     margin: 12px 0;
     color: var(--details);
 }
+.term-title strong {
+    text-transform: uppercase;
+}
 .term-title strong, .term-title span {
     font: normal normal 400 19px BPG-regular;
 }
@@ -430,15 +433,17 @@ body{
 .about-title{
     display: inline-block;
     padding-bottom: 5px;
-    font-size: var(--large);
+    /* font-size: var(--large);
+    font-family: 'BPG-ghalo-caps-regular'; */
     margin-bottom: 22px;
-    font-family: 'BPG-ghalo-caps-regular';
     border-bottom: 3px solid #8A8FA3;
+    font: normal normal 400 var(--large) BPG-ghalo-caps-regular;
+    line-height: 25px;
 }
 .about-info{
     max-width: 986px;
     width: 100%;
-    font-family: 'firaGo-regular';
+    font: normal normal 400 16px firaGo-regular;
 }
 .pagination {
     max-width: 100%;
@@ -490,10 +495,12 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column-reverse;
+    font: normal normal 400 var(--medium) firaGo-regular;
 }
 .footer-info{
     margin-bottom: 20px;
     text-align: center;
+    font-size: var(--small);
 }
 .footer-info::before{
     content: '';
@@ -865,9 +872,12 @@ select{
         line-height: var(--micro);
     }
     .nav-link:last-child {
-        margin-left: 8px;
+        margin-left: 0;
         font-family: 'firaGo-regular';
         font-size: 12px;
+    }
+    .nav-li:not(:first-child){
+        margin-left: 8px;
     }
     #filter {
         padding-left: 0;
@@ -902,6 +912,10 @@ select{
       }
 }
 @media (max-width: 380px) {
+    .header{
+        margin-top: 0;
+        padding: 33px 0 20px 0;
+    }
     .container {
         max-width: 318px;
     }
@@ -911,17 +925,16 @@ select{
     .nav-link:last-child {
         white-space: nowrap;
     }
-    .nav-li:first-child {
+    /* .nav-li:first-child {
         margin-left: 10px;
-    }
-    
+    } */
     .term-description, .card-body, .card-header {
         width: 240px;
     }
 }
 @media (max-width: 320px) {
-    .nav-li:last-child {
-        margin-left: -15px;
-    }
+    /* .nav-li:last-child {
+        margin-left: 0px;
+    } */
     
 }
