@@ -303,7 +303,7 @@ body{
     color: var(--card-bg);
     background-color: var(--details);
     padding: 7px 15px;
-    
+    line-height: 19px;
     border-radius: 5px; 
     font-family: 'firaGo-light';
     transition: .3s ease-out;
