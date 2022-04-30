@@ -212,9 +212,12 @@ body{
 .desc-tag {
     opacity: .8;
 }
+.example {
+    font: normal normal 300 12px/14px firaGo-regular;
+}
 .term-detailed p {
     font-size: var(--medium);
-    line-height: 19px;
+    line-height: 24px;
     color: var(--white);
     padding: 12px 0;
 }
