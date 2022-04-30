@@ -806,6 +806,9 @@ select{
     .term-detailed .example-flexbox p {
         max-width: 390px;
     }
+    .see-details {
+        padding: 10px 5px;
+    }
 }
 @media (max-width: 769px) {
     .container{
@@ -870,6 +873,9 @@ select{
     }
     #termExample {
         max-width: 100%;
+    }
+    .see-details {
+        padding: 10px 15px;
     }
 }
 @media (max-width: 620px) {
