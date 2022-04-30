@@ -283,7 +283,7 @@ const alphabetArrGeo = ['ა', 'ბ', 'გ', 'დ', 'ე', 'ვ', 'ზ', 'თ', 
 const alphabetArrEng = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 const cardsWrapper = document.querySelector('.term-cards-wrapper')
-if (document.location.pathname == '/dictionary-detailed.html') {
+if (document.location.pathname == '/unilab-dictionar/dictionary-detailed.html') {
     const termExample = document.querySelector('#termExample')
     const exampleImg = document.querySelector('.example-img')
 
@@ -297,7 +297,7 @@ if (document.location.pathname == '/unilab-dictionary/index.html') {
     const dataToRender = data.filter(item => item.id < 3)
     renderData(dataToRender)
 }
-if (document.location.pathname == '/dictionary.html') {
+if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
     const swiperWrapper = document.querySelector('.swiper-wrapper');
     const alphabetWrapper = document.querySelector('.alphabet-wrapper')
     const alphabetSwitcher = document.querySelector('.alphabet-switcher')
