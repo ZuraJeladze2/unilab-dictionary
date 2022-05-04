@@ -283,15 +283,13 @@ const alphabetArrGeo = ['ა', 'ბ', 'გ', 'დ', 'ე', 'ვ', 'ზ', 'თ', 
 const alphabetArrEng = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 const cardsWrapper = document.querySelector('.term-cards-wrapper')
-if (document.location.pathname == '/unilab-dictionar/dictionary-detailed.html') {
+if (document.location.pathname == '/unilab-dictionary/dictionary-detailed.html') {
     const termExample = document.querySelector('#termExample')
     const exampleImg = document.querySelector('.example-img')
 
     if(exampleImg === null) {
         termExample.style.maxWidth = '1000px';
     }
-
-
 }
 if (document.location.pathname == '/unilab-dictionary/index.html') {
     const dataToRender = data.filter(item => item.id < 3)
@@ -307,27 +305,18 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
     const notFoundMessage = document.querySelector('.not-found-message-wrapper')
     const paginationWrapper = document.querySelector('.pagination')
     const termsPerPage = 9
-    const roundedTermsNum = Math.ceil(data.length / termsPerPage)
     let paginationResult
-
     const swiper = new Swiper('.swiper', {
-        // Optional parameters
-      
-        // If we need pagination
-        
-      
         // Navigation arrows
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
-      
         // And if we need scrollbar
-        // scrollbar: {
-        //   el: '.swiper-scrollbar',
-        // },
-        slidesPerView: 11,
-        spaceBetween: 5,
+        scrollbar: {
+          el: '.swiper-scrollbar',
+        },
+        slidesPerView: 10,
         slidesPerGroup: 3
       });
     // initiate first page on window load
@@ -338,10 +327,19 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
     // generating 9 cards per page
     paginationRender(data)
     function paginationRender (arr) {
-        
+        paginationWrapper.innerHTML = ''
+        const roundedTermsNum = Math.ceil(arr.length / termsPerPage)
+        const doubleLeft = document.createElement('span')
+        doubleLeft.setAttribute('class', 'pagination-double-left-arrow')
+        doubleLeft.innerHTML = 
+        `
+            <<
+        `
+        paginationWrapper.append(doubleLeft)
         const leftArrow = document.createElement('span')
         leftArrow.setAttribute('class', 'pagination-left-arrow')
-        leftArrow.innerHTML = `
+        leftArrow.innerHTML = 
+        `
         <svg xmlns="http://www.w3.org/2000/svg" width="12.51" height="8.893" viewBox="0 0 12.51 8.893">
             <g id="noun_Arrow_2884045" transform="translate(12.51) rotate(90)">
                 <path id="Path_3" data-name="Path 3" d="M8.307,12.51.207,6.66a.5.5,0,0,1,0-.81L8.307,0l.586.811L1.354,6.255,8.893,11.7Z" transform="translate(0 0)" fill="#8a8fa3" opacity="0.63"/>
@@ -349,21 +347,24 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
         </svg>
         `
         paginationWrapper.append(leftArrow)
-        for (let i = 1; i <= roundedTermsNum; i++) {
-            const pageNumber = document.createElement('span')
-            pageNumber.setAttribute('class', 'page-number')
-            pageNumber.innerText = i
-            paginationWrapper.append(pageNumber)
-            pageNumber.addEventListener('click', function () {
-                document.querySelectorAll('.page-number').forEach(el => el.classList.remove('active-page'))
-                this.classList.add('active-page')
-                const pageNum = +this.innerText
-                const startPoint = (pageNum - 1) * termsPerPage
-                const endPoint = startPoint + termsPerPage
-                paginationResult = arr.slice(startPoint, endPoint)
-                cardsWrapper.innerHTML = ''
-                renderData(paginationResult)
-            })
+        if(roundedTermsNum >= 1) {
+            for (let i = 1; i <= roundedTermsNum; i++) {
+                const pageNumber = document.createElement('span')
+                pageNumber.setAttribute('class', 'page-number')
+                pageNumber.innerText = i
+                paginationWrapper.append(pageNumber)
+                pageNumber.addEventListener('click', function () {
+                    document.querySelectorAll('.page-number').forEach(el => el.classList.remove('active-page'))
+                    this.classList.add('active-page')
+                    const pageNum = +this.innerText
+                    const startPoint = (pageNum - 1) * termsPerPage
+                    const endPoint = startPoint + termsPerPage
+                    paginationResult = arr.slice(startPoint, endPoint)
+                    cardsWrapper.innerHTML = ''
+                    renderData(paginationResult)
+                })
+            }
+        document.querySelector('.page-number').click()
         }
         const rightArrow = document.createElement('span')
         rightArrow.setAttribute('class', 'pagination-right-arrow')
@@ -381,87 +382,98 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
         rightArrow.addEventListener('click', () => {
             console.log('right clicked')
         })
+        const doubleRight = document.createElement('span')
+        doubleRight.setAttribute('class', 'pagination-double-right-arrow')
+        doubleRight.innerHTML = 
+        `
+           >>
+        `
+        paginationWrapper.append(doubleRight)
     }
     // generating 9 cards per page
-
-
+    // generate alphabet for desktop
     alphabetGenerator(alphabetArrGeo)
+    // generate alphabet for desktop
+    // initiate slider
     swiperInit(alphabetArrGeo)
-
+    // initiate slider
+    // adding active class to first letter
+    alphabetWrapper.childNodes[1].classList.add('active-letter')
+    swiperWrapper.childNodes[0].classList.add('active-letter')
+    // adding active class to first letter
     lettersOnClick('.letter-box')
     const switchFace = document.querySelector('.switch-face')
+    const background = document.querySelector('.alphabet-bg')
     const switchTextEng = 'ENG'
     const switchTextGeo = 'ქარ'
     switchFace.innerText = switchTextEng
-
-    switchFace.addEventListener('click', () => {
+    background.addEventListener('click', (e)=> {
+        e.stopImmediatePropagation()
+        alphabetSwitcher.click()
+    })
+    alphabetSwitcher.addEventListener('click', (e) => {
+        e.stopImmediatePropagation()
         if (switchFace.innerText == switchTextEng) {
             switchFace.innerText = switchTextGeo
             alphabetWrapper.innerText = ''
             alphabetGenerator(alphabetArrEng)
             alphabetSwitcher.style.transform = 'translateX(34px)'
             lettersOnClick('.letter-box')
+            swiperInit(alphabetArrEng)
         }
         else {
-            
             switchFace.innerText = switchTextEng
             alphabetWrapper.innerText = ''
             alphabetGenerator(alphabetArrGeo)
             alphabetSwitcher.style.transform = 'translateX(0px)'
             lettersOnClick('.letter-box')
+            swiperInit(alphabetArrGeo)
         }
 
     })
-
-
     searchFilter.addEventListener('change', () => {
         const searchFilterData = data.filter(item => item.keyword == searchFilter.value)
         searchCounter(searchFilterData)
         if (searchFilter.value !== 'default') {
             cardsWrapper.innerHTML = ''
-            renderData(searchFilterData)
+            paginationRender(searchFilterData)
         }
     })
 
     const search = document.querySelector('#dictionary-search')
     search.addEventListener('input', (e) => {
         cardsWrapper.innerHTML = ''
-        paginationWrapper.style.display = 'none';
         const filteredData = data.filter(item => item.titleEng.includes(e.target.value) || item.titleGeo.includes(e.target.value))
         if(filteredData.length < 10 && filteredData.length !== 0) {
+            notFoundMessage.style.display = 'none'
             searchCounter(filteredData)
-            renderData(filteredData)
-            paginationWrapper.style.display = 'none'
+            paginationRender(filteredData)
+            if(filteredData.length === 1) {
+                cardsWrapper.style.justifyContent = 'flex-start'
+            }
+            cardsWrapper.style.justifyContent = 'space-around'
+            paginationWrapper.style.display = 'block'
         }else if (filteredData.length == 0){
             notFoundMessage.style.display = 'flex'
-            paginationWrapper.style.display = 'none'
             searchCounter(filteredData)
+            paginationWrapper.style.display = 'none'
         }
         if (e.target.value == '') {
-            renderData(paginationResult)
+            paginationRender(filteredData)
             notFoundMessage.style.display = 'none'
             paginationWrapper.style.display = 'block'
             messageWrapper.style.display = 'none'
-            // searchCounter(data)
-
         }else if (e.target.value !== '' && filteredData.length >= 10){
-            console.log(filteredData.length)
             searchCounter(filteredData)
-            renderData(filteredData)
-            paginationWrapper.style.display = 'none'
+            paginationRender(filteredData)
         }
     })
-
-
-
     function searchCounter(arr) {
-        if (arr !== null) {
+        if (arr != null) {
             messageWrapper.style.display = 'block'
             resultCounter.innerText = arr.length
         }
     }
-
-
     function alphabetGenerator(alphabetArray) {
         if (alphabetArray[0] == alphabetArrGeo[0]) {
             alphabetArray.forEach((letter) => {
@@ -485,7 +497,6 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
             })
         }
     }
-
     function lettersOnClick(someClass) {
         const letterBoxes = document.querySelectorAll(someClass)
         letterBoxes.forEach(letterBox => {
@@ -495,29 +506,21 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
             })
         })
     }
-
-
     function swiperInit (arr) {
+        swiperWrapper.innerHTML = '';
         arr.forEach(el => {
+            const upperCase = el.toUpperCase()
             const letter = document.createElement('div')
             letter.setAttribute('class', 'swiper-slide')
-            letter.innerText = el
+            letter.innerText = upperCase
             swiperWrapper.append(letter)
             lettersOnClick('.swiper-slide')
         })
     }
 
 }
-
-
-
-
-
-
-
-
-
 function renderData(array) {
+    cardsWrapper.innerHTML = ''
     array.forEach((element) => {
         const card = document.createElement('div')
         card.setAttribute('class', 'term-card')
@@ -527,7 +530,7 @@ function renderData(array) {
                       <span class="term-icon">
                           <img src="${element.iconPath}" alt="third icon">
                       </span>
-                      <h3 class="term-header-title"><span class="bold">${element.titleEng} -</span><span>${element.titleGeo}</span></h3>
+                      <h3 class="term-header-title"><span>${element.titleEng} -</span><span>${element.titleGeo}</span></h3>
                   </div>
                   <div class="card-body">
                       <p class="term-description">${element.Description}</p>
