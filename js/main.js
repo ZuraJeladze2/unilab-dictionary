@@ -442,6 +442,7 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
 
     const search = document.querySelector('#dictionary-search')
     search.addEventListener('input', (e) => {
+        cardsWrapper.style.justifyContent = 'space-around'
         cardsWrapper.innerHTML = ''
         const filteredData = data.filter(item => item.titleEng.includes(e.target.value) || item.titleGeo.includes(e.target.value))
         if(filteredData.length < 10 && filteredData.length !== 0) {
@@ -451,7 +452,6 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
             if(filteredData.length === 1) {
                 cardsWrapper.style.justifyContent = 'flex-start'
             }
-            cardsWrapper.style.justifyContent = 'space-around'
             paginationWrapper.style.display = 'block'
         }else if (filteredData.length == 0){
             notFoundMessage.style.display = 'flex'
