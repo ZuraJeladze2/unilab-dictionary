@@ -54,7 +54,6 @@ a{
     --main-font: #4F4646;
     --dark-text: #323232;
     --term-of-week-btn: #F5F8FD;
-
     /* font-size */
     --large: 20px;
     --medium: 16px;
@@ -68,12 +67,6 @@ body{
     max-width: 1088px;
     width: 100%;
     margin: 0 auto;
-}
-.container h1 {
-    color: var(--main-font);
-    line-height: 24px;
-    padding: 30px 0 0 20px;
-    font: normal normal 400 20px BPG-ghalo-caps-regular;
 }
 .bold{
     font-weight: bold;
@@ -168,7 +161,7 @@ body{
     color: #8A8FA3;
 }
 .term-of-week .hashtag-keywords span:first-child{
-    margin-right: 20px;
+    margin-right: 10px;
     line-height: 14px;
 }
 .term-title{
@@ -199,13 +192,11 @@ body{
 #term {
     color: #D4E2ED;
     margin-bottom: 30px;
-    font: normal normal 400 18px BPG-ghalo-caps-regular;
-    line-height: 21px;
+    font: normal normal 400 18px/21px BPG-regular;
 }
 #termDesc {
     margin-bottom: 25px;
     color: #FFFFFF;
-    font-family: 'firaGo-medium', sans-serif;
     opacity: .8;
 }
 .example,
@@ -217,8 +208,7 @@ body{
     font: normal normal 300 12px/14px firaGo-regular;
 }
 .term-detailed p {
-    font-size: var(--medium);
-    line-height: 24px;
+    font: normal normal 400 16px/24px firaGo-regular;
     color: var(--white);
     padding: 12px 0;
 }
@@ -237,16 +227,12 @@ body{
 .example-flexbox {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 30px;
 }
 .term-detailed .example-flexbox p {
-    font-size: var(--medium);
-    line-height: 24px;
+    font: normal normal 400 16px/24px firaGo-regular;
     color: white;
     max-width: 578px;
-    font-family: "firaGo-regular", sans-serif;
 }
-
 .term-detailed .example-img {
     border-radius: 10px;
 }
@@ -271,6 +257,7 @@ body{
 }
 .terms-button-wrapper {
     margin-top: 35px;
+    margin-left: 20px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -302,6 +289,9 @@ body{
     cursor: pointer;
     font-family: 'firaGo-light-italic';
     line-height: 14px;
+}
+.hashtag-keywords span:first-child{
+    margin-bottom: 4px;
 }
 .term-of-week-footer .hashtag-keywords a{
     opacity: .8;
@@ -337,8 +327,7 @@ body{
     width: 100%;
 }
 .term-cards-wrapper h3 {
-    font-family: 'firaGo-extra-bold';
-    font-size: 16px;
+    font: normal normal 800 16px/19px firaGo-medium;
 }
 .counter-wrapper{
     display: none;
@@ -373,13 +362,13 @@ body{
     flex-direction: column;
     min-height: 169px;
 }
-.term-header-underline {
+.similar-terms-title {
+    color: var(--main-font);
+    font: normal normal 400 20px/24px BPG-regular;
+    border-bottom: 3px solid var(--main-font);
+    display: inline-block;
+    padding: 30px 0 10px 0;
     margin-left: 20px;
-    margin-top: 10px;
-    background-color: #8A8FA3;
-    height: 2px;
-    border: none;
-    width: 175px;
 }
 .flex-wrap-main {
     display: flex;
@@ -402,7 +391,6 @@ body{
 .term-header-title{
     display: flex;
     flex-direction: column;
-    font-family: 'firaGo-extra-bold';
 }
 .term-icon{
     display: block;
@@ -419,23 +407,16 @@ body{
     width: 297px;
     height: 47px;
     font-family: 'firaGo-medium';
+    margin-bottom: 10px;
 }
 .week-term-description{
     max-height: 20px;
     max-width: 884px;
     width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     font-family: 'firaGo-medium';
 }
 .term-description{
-    font-size: 14px;
-    line-height: 17px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-family: 'firaGo-medium', sans-serif;
+    font: normal normal 400 14px/17px firaGo-regular;
 }
 .card-footer{
     display: flex;
@@ -451,8 +432,6 @@ body{
 .about-title{
     display: inline-block;
     padding-bottom: 5px;
-    /* font-size: var(--large);
-    font-family: 'BPG-ghalo-caps-regular'; */
     margin-bottom: 22px;
     border-bottom: 3px solid #8A8FA3;
     font: normal normal 400 var(--large) BPG-ghalo-caps-regular;
@@ -603,6 +582,7 @@ body{
     background-color: var(--details);
     border-radius: var(--large);
     margin-left: auto;
+    cursor: pointer;
 }
 .alphabet-switcher{
     height: 40px;
@@ -642,7 +622,6 @@ body{
     border-radius: 0%;
     border: 1px var(--main-font) solid;
     color: var(--main-font);
-  
 }
 #filter {
     width: 250px;
@@ -711,30 +690,36 @@ select{
 .team-member-card:hover .team-info p {
     color: var(--white);
 }
+.background-svg {
+    background-image: url(../media/jpg/error-layer.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 520px;
+    width: 360px;
+}
 .error-wrapper {
-    max-width: 100%;
-    width: 100%;
-    height: 68vh;
+    position: relative;
+    padding-top: 40px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    /* background-color: #DADBDA; */
-    padding: 120px 0 248px 0;
-    box-shadow: inset 0px 3px 6px #00000029;
+    flex-direction: column;
 }
 .error-wrapper h1 {
-    font-size: 22px;
-    color: var(--main-font);
-    padding-bottom: 46px;
-    font-family: "firaGo-regular", sans-serif;
-    font-weight: 100;
+    margin-top: 20px;
     position: absolute;
-    top: 30%;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%, -28%);
+    color: var(--main-font);
+    font: normal normal 100 22px/17px firaGo-regular;
 }
 .error-wrapper a {
     position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -43%);
 }
 .error-wrapper button {
     background-color: var(--card-bg);
@@ -748,13 +733,29 @@ select{
     cursor: pointer;
     font-family: "firaGo-regular", sans-serif;
 }
-
-.background-svg {
-    position: absolute;
-    top: 17%;
-   
+.alphabet-block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-
+.letter-box.geo:not(:last-child) {
+    margin-right: 5px;
+}
+.letter-box:not(:last-child) {
+    margin-right: 10px;
+}
+.term-card:last-child {
+    
+}
+.term-card.fullsize {
+    width: 100%;
+}
+.term-card.fullsize .term-header-title {
+    flex-direction: row;
+}
+.term-card.fullsize .card-body {
+    width: 80%;
+}
 /* swiper */
 .swiper-wrapper{
     width: 83%;
@@ -777,9 +778,11 @@ select{
 }
 .swiper-button-next {
     right: 0;
+    color: var(--card-bg);
 }
 .swiper-button-prev {
     left: 0;
+    color: var(--card-bg);
 }
 .swiper-button-next::after,
 .swiper-button-prev::after {
@@ -789,6 +792,12 @@ select{
 .swiper-wrapper div.active-letter{
     font-weight: bold;
     color: #3F4C5F;
+}
+.swiper-scrollbar {
+    background: transparent;
+}
+.swiper-scrollbar-drag {
+    background: #D4E2ED;
 }
 /* swiper */
 /* responsive */
@@ -807,6 +816,12 @@ select{
     .term-cards-wrapper{
         justify-content: space-around;
     }
+    .letter-box.geo:not(:last-child) {
+        margin-right: 2px;
+    }
+    .letter-box:not(:last-child) {
+        margin-right: 5px;
+    }
 }
 @media (max-width: 992px) {
     .container {
@@ -814,6 +829,12 @@ select{
     }
     .alphabet {
         display: none;
+    }
+    .alphabet-block{
+        justify-content: flex-end;
+    }
+    .alphabet-button-wrapper {
+        margin-bottom: 10px;
     }
     .swiper{
         display: block;
@@ -832,8 +853,14 @@ select{
     .term-detailed .example-flexbox p {
         max-width: 490px;
     }
+    .example-flexbox {
+        margin-bottom: 30px;
+    }
     .term-cards-wrapper{
         margin-top: 50px;
+    }
+    .card-footer, .card-body {
+        margin-left: 30px;
     }
 }
 @media (max-width: 860px) {
@@ -879,6 +906,12 @@ select{
     .term-detailed .example-flexbox p {
         max-width: 290px;
     }
+    .term-card.fullsize .card-body {
+        width: 100%;
+    }
+    .terms-button-wrapper {
+        margin-left: 40px;
+    }
 }
 @media (max-width: 670px) {
     .container {
@@ -914,6 +947,13 @@ select{
     .see-details {
         padding: 10px 15px;
     }
+    .hashtag-wrapper a {
+        display: block;
+        margin-bottom: 4px;
+    }
+    .term-header-title{
+        flex-direction: row;
+    }
 }
 @media (max-width: 620px) {
     .container {
@@ -924,6 +964,12 @@ select{
     }
     .terms-button-wrapper a {
         margin: 10px;
+    }
+    .card-footer, .card-body {
+        margin-left: 0;
+    }
+    .terms-button-wrapper {
+        margin-left: 0;
     }
 }
 @media  (max-width: 580px) {
@@ -944,6 +990,22 @@ select{
     .footer-info::before{
         width: 233px;
         margin: 0 auto 20px auto;
+    }
+    .alphabet-bg{
+        height: 22px;
+        width: 46px;
+        background-color: var(--details);
+        border-radius: var(--large);
+    }
+    .alphabet-switcher {
+        height: 20px;
+        width: 20px;
+    }
+    .switch-face {
+        font-size: 8px;
+    }
+    .error-wrapper h1 {
+        font-size: 20px;
     }
 }
 @media (max-width: 480px) {
@@ -996,6 +1058,25 @@ select{
     .example-img {
         width: 275px;
     }
+    .term-card.fullsize .term-header-title {
+        flex-direction: column;
+    }
+    .term-header-title{
+        flex-direction: column;
+    }
+    .background-svg {
+        height: 460px;
+        width: 260px;
+        background-size: contain;
+    }
+    .error-wrapper h1 {
+        font-size: 18px;
+        margin-top: 35px;
+        white-space: nowrap;
+    }
+    .error-wrapper button {
+        font-size: 16px;
+    }
 }
 @media (max-width: 380px) {
     .header{
@@ -1011,16 +1092,35 @@ select{
     .nav-link:last-child {
         white-space: nowrap;
     }
-    /* .nav-li:first-child {
-        margin-left: 10px;
-    } */
-    .term-description, .card-body, .card-header {
-        width: 240px;
+    .alphabet-button-wrapper {
+        margin-right: 10px;
     }
-}
-@media (max-width: 320px) {
-    /* .nav-li:last-child {
-        margin-left: 0px;
-    } */
-    
+    .term-of-week h2 {
+        font-size: 18px;
+    }
+    .term-title strong, .term-title span {
+        font-size: 14px;
+    }
+    .week-term-description {
+        font-size: 14px;
+    }
+    .term-of-week{
+        padding: 10px;
+    }
+    .error-wrapper {
+        padding-top: 0;
+    }
+    .error-wrapper h1 {
+        margin-top: 15px;
+        top: 27%;
+        transform: translate(-50%, -27%);
+    }
+    .error-wrapper button {
+        font-size: 16px;
+        white-space: nowrap;
+    }
+    .error-wrapper a {
+        top: 40%;
+        transform: translate(-50%, -40%);
+    }
 }

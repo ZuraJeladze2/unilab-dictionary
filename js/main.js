@@ -3,7 +3,7 @@ const data = [
         id: 0,
         titleEng: 'Project management',
         titleGeo: 'პროექტის მენეჯმენტი',
-        Description: 'ადამიანური, მატერიალური და დროითი რესურსების დაგეგმვა',
+        Description: 'ადამიანური, მატერიალური და დროითი რესურსების დაგეგმვა ადამიანური, მატერიალური და დროითი რესურსების დაგეგმვა',
         hashTags: ['გრაფიკულიდიზაინი', 'frontend'],
         iconPath: 'media/svg/term-cards/term-icon-1.svg',
         keyword: 'frontend'
@@ -278,22 +278,51 @@ const data = [
         iconPath: 'media/svg/term-cards/term-icon-3.svg',
         keyword: 'frontend'
     },
+    {
+        id: 31,
+        titleEng: 'Project',
+        titleGeo: 'პროექტი',
+        Description: 'პროექტი არის დროებითი საქმიანობა უნიკალური პროდუქტის, მომსახურების ან შედეგის შექმნის მიზნით',
+        hashTags: ['ციფრულიკომუნიკაციები', 'პროექტისმენეჯმენტი'],
+        iconPath: 'media/svg/term-cards/term-icon-3.svg',
+        keyword: 'frontend',
+        weekTerm: true
+    },
 ]
 const alphabetArrGeo = ['ა', 'ბ', 'გ', 'დ', 'ე', 'ვ', 'ზ', 'თ', 'ი', 'კ', 'ლ', 'მ', 'ნ', 'ო', 'პ', 'ჟ', 'რ', 'ს', 'ტ', 'უ', 'ფ', 'ქ', 'ღ', 'ყ', 'შ', 'ჩ', 'ც', 'ძ', 'წ', 'ჭ', 'ხ', 'ჯ', 'ჰ']
 const alphabetArrEng = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
+let wordsCount = 7
 const cardsWrapper = document.querySelector('.term-cards-wrapper')
 if (document.location.pathname == '/unilab-dictionary/dictionary-detailed.html') {
     const termExample = document.querySelector('#termExample')
     const exampleImg = document.querySelector('.example-img')
-
+    const dataToRender = data.filter(item => item.id < 6)
+    renderData(dataToRender)
     if(exampleImg === null) {
         termExample.style.maxWidth = '1000px';
     }
 }
 if (document.location.pathname == '/unilab-dictionary/index.html') {
+    const weekTermTitleEnd = document.querySelector('.term-title strong')
+    const weekTermTitleGeo = document.querySelector('.term-title span')
+    const weekTermDesc = document.querySelector('.week-term-description')
+    const firstHashtag = document.querySelector('.hashtag-1')
+    const secondHashtag = document.querySelector('.hashtag-2')
+    weekTerm = data.filter(term => term.weekTerm)
+    weekTermTitleEnd.textContent = weekTerm[0].titleEng
+    weekTermTitleGeo.textContent = weekTerm[0].titleGeo
+    weekTermDesc.textContent = weekTerm[0].Description.split(' ').splice(0, 11).join(' ') + '...'
+    firstHashtag.textContent = '#' + weekTerm[0].hashTags[0]
+    secondHashtag.textContent = '#' + weekTerm[0].hashTags[1]
+    console.log(weekTerm)
     const dataToRender = data.filter(item => item.id < 3)
     renderData(dataToRender)
+    if (document.body.offsetWidth < 769) {
+        const cards = document.querySelectorAll('.term-card')
+        cards.forEach(card => {
+            card.classList.add('fullsize')
+        })
+    }
 }
 if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
     const swiperWrapper = document.querySelector('.swiper-wrapper');
@@ -304,8 +333,17 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
     const messageWrapper = document.querySelector('.counter-wrapper')
     const notFoundMessage = document.querySelector('.not-found-message-wrapper')
     const paginationWrapper = document.querySelector('.pagination')
-    const termsPerPage = 9
+    let termsPerPage = 9
     let paginationResult
+    if(document.body.offsetWidth < 480) {
+        termsPerPage = 3
+    }else if (document.body.offsetWidth < 991) {
+        termsPerPage = 6
+
+    }else {
+        termsPerPage = 9
+
+    }
     const swiper = new Swiper('.swiper', {
         // Navigation arrows
         navigation: {
@@ -321,7 +359,7 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
       });
     // initiate first page on window load
     window.onload = () => {
-        document.querySelector('.page-number').click()
+        // document.querySelector('.page-number').click()
     }
     // initiate first page on window load
     // generating 9 cards per page
@@ -417,9 +455,16 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
             switchFace.innerText = switchTextGeo
             alphabetWrapper.innerText = ''
             alphabetGenerator(alphabetArrEng)
-            alphabetSwitcher.style.transform = 'translateX(34px)'
+            console.log(document.body.offsetWidth)
+            if(document.body.offsetWidth < 570) {
+                alphabetSwitcher.style.transform = 'translateX(25px)'
+            }else {
+                alphabetSwitcher.style.transform = 'translateX(34px)'
+            }
             lettersOnClick('.letter-box')
             swiperInit(alphabetArrEng)
+            alphabetWrapper.childNodes[0].classList.add('active-letter')
+            swiperWrapper.childNodes[0].classList.add('active-letter')
         }
         else {
             switchFace.innerText = switchTextEng
@@ -428,6 +473,8 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
             alphabetSwitcher.style.transform = 'translateX(0px)'
             lettersOnClick('.letter-box')
             swiperInit(alphabetArrGeo)
+            alphabetWrapper.childNodes[0].classList.add('active-letter')
+            swiperWrapper.childNodes[0].classList.add('active-letter')
         }
 
     })
@@ -444,7 +491,7 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
     search.addEventListener('input', (e) => {
         cardsWrapper.style.justifyContent = 'space-around'
         cardsWrapper.innerHTML = ''
-        const filteredData = data.filter(item => item.titleEng.includes(e.target.value) || item.titleGeo.includes(e.target.value))
+        const filteredData = data.filter(item => item.titleEng.toLowerCase().includes(e.target.value.toLowerCase()) || item.titleGeo.includes(e.target.value))
         if(filteredData.length < 10 && filteredData.length !== 0) {
             notFoundMessage.style.display = 'none'
             searchCounter(filteredData)
@@ -466,6 +513,8 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
         }else if (e.target.value !== '' && filteredData.length >= 10){
             searchCounter(filteredData)
             paginationRender(filteredData)
+            notFoundMessage.style.display = 'none'
+
         }
     })
     function searchCounter(arr) {
@@ -478,7 +527,7 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
         if (alphabetArray[0] == alphabetArrGeo[0]) {
             alphabetArray.forEach((letter) => {
                 const letterSpan = document.createElement('span')
-                letterSpan.setAttribute('class', 'letter-box')
+                letterSpan.setAttribute('class', 'letter-box geo')
                 letterSpan.innerText = letter
                 alphabetWrapper.append(letterSpan)
                 letterSpan.addEventListener('click', (e) => {
@@ -520,8 +569,17 @@ if (document.location.pathname == '/unilab-dictionary/dictionary.html') {
 
 }
 function renderData(array) {
-    cardsWrapper.innerHTML = ''
+    if (document.body.offsetWidth < 769) {
+            wordsCount = 6
+        
+        }
+    if (document.body.offsetWidth < 480) {
+            wordsCount = 5
+        }
     array.forEach((element) => {
+    console.log(wordsCount, 'sityva')
+    cardsWrapper.innerHTML += ''
+        // console.log(element.Description)
         const card = document.createElement('div')
         card.setAttribute('class', 'term-card')
         cardsWrapper.append(card)
@@ -533,7 +591,7 @@ function renderData(array) {
                       <h3 class="term-header-title"><span>${element.titleEng} -</span><span>${element.titleGeo}</span></h3>
                   </div>
                   <div class="card-body">
-                      <p class="term-description">${element.Description}</p>
+                      <p class="term-description">${element.Description.split(' ').splice(0, wordsCount).join(' ') + "..."}</p>
                   </div>
                   <div class="card-footer">
                       <div class="hashtag-keywords">
@@ -546,4 +604,11 @@ function renderData(array) {
                   </div>
     `
     })
+    if(cardsWrapper.children.length % 2 === 0) {
+        console.log('luwi', cardsWrapper.children.length % 2)
+        // cardsWrapper.style.justifyContent = 'space-around'
+    }else {
+        console.log('kenti', cardsWrapper.children.length)
+        // cardsWrapper.style.justifyContent = 'flex-start'
+    }
 }
