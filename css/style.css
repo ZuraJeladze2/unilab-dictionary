@@ -519,11 +519,13 @@ body{
 }
 .container .about-block {
     color: var(--main-font);
-    background-color: var(--secondary-color);
     padding: 20px;
 }
 .container .about-block h2 {
-    padding-bottom: 1rem;
+    display: inline-block;
+    font: normal normal 400 16px/19px BPG-ghalo-caps-regular;
+    margin-bottom: 10px;
+    border-bottom: 3px solid #8A8FA3;
 }
 .container .about-block p {
     padding: 10px 0;
@@ -656,40 +658,32 @@ select{
     border-radius: 10px;
     border: 1.5px solid var(--details);
 }
-.meet-team-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    padding-bottom: 15.1%;
+/* slick slider on about page */
+.slick-prev:before {
+    content: "<";
+    color: var(--main-font);
+    font-size: 30px;
 }
-.team-member-card {
-    position: relative;
-    width: 272px;
-    max-width: 100%;
-    background: url(../media/png/default-user-image.png) center no-repeat;
-    background-size: cover;
-    margin: 20px 0;
-    padding: 14px 20px 0px 20px;
-    transition: .3s ease-out;
-    border-radius: 10px;
+.slick-next:before {
+    content: ">";
+    color: var(--main-font);
+    font-size: 30px;
 }
-.team-member-card .team-info {
-    padding-top: 78.64%;
+.slick-slide-wrapper img {
+    height: 100%;
 }
-.team-member-card .team-info p {
-    text-align: center;
-    color: transparent;
-    padding-bottom: 10px;
-    transition: .3s ease-out;
+.slick-slide-wrapper {
+    width: 260px;
+    height: 260px;
 }
-.team-member-card:hover {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../media/png/default-user-image.png) center no-repeat;
-    background-size: cover;
+.slick-prev {
+    z-index: 22222;
 }
-.team-member-card:hover .team-info p {
-    color: var(--white);
-}
+
+
+
+
+/* slick slider on about page */
 .background-svg {
     background-image: url(../media/jpg/error-layer.jpg);
     background-repeat: no-repeat;
@@ -743,9 +737,6 @@ select{
 }
 .letter-box:not(:last-child) {
     margin-right: 10px;
-}
-.term-card:last-child {
-    
 }
 .term-card.fullsize {
     width: 100%;
@@ -1076,6 +1067,12 @@ select{
     }
     .error-wrapper button {
         font-size: 16px;
+    }
+    .slick-prev {
+        left: 0;
+    }
+    .slick-next {
+        right: 0;
     }
 }
 @media (max-width: 380px) {

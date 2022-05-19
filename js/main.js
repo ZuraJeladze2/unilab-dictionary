@@ -291,8 +291,10 @@ const data = [
 ]
 const alphabetArrGeo = ['ა', 'ბ', 'გ', 'დ', 'ე', 'ვ', 'ზ', 'თ', 'ი', 'კ', 'ლ', 'მ', 'ნ', 'ო', 'პ', 'ჟ', 'რ', 'ს', 'ტ', 'უ', 'ფ', 'ქ', 'ღ', 'ყ', 'შ', 'ჩ', 'ც', 'ძ', 'წ', 'ჭ', 'ხ', 'ჯ', 'ჰ']
 const alphabetArrEng = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-let wordsCount = 7
+let wordsCount = 7;
 const cardsWrapper = document.querySelector('.term-cards-wrapper')
+
+
 if (document.location.pathname == '/unilab-dictionary/dictionary-detailed.html') {
     const termExample = document.querySelector('#termExample')
     const exampleImg = document.querySelector('.example-img')
