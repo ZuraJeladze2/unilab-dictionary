@@ -293,8 +293,104 @@ const alphabetArrGeo = ['ა', 'ბ', 'გ', 'დ', 'ე', 'ვ', 'ზ', 'თ', 
 const alphabetArrEng = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 let wordsCount = 7;
 const cardsWrapper = document.querySelector('.term-cards-wrapper')
+const members = [
+    {
+        memberId: 0,
+        memberName: 'სახელი',
+        memberLastname: 'გვარი',
+        memberPosition: 'Frontend Developer',
+        memberImagePath: 'media/png/person.png'
+    },
+    {
+        memberId: 1,
+        memberName: 'სახელი',
+        memberLastname:  'გვარი',
+        memberPosition: 'Backend Developer',
+        memberImagePath: 'media/png/person.png'
+    },
+    {
+        memberId: 2,
+        memberName: 'სახელი',
+        memberLastname: 'გვარი',
+        memberPosition: 'UI/UX Designer',
+        memberImagePath: 'media/png/person.png'
+    },
+    {
+        memberId: 3,
+        memberName: 'სახელი',
+        memberLastname:  'გვარი',
+        memberPosition: 'Project Manager',
+        memberImagePath: 'media/png/person.png'
+    },
+]
+if(document.location.pathname == '/unilab-dictionary/about.html') {
+    const teamWrapper = document.querySelector('.meet-team-wrapper')
+    const personName = document.querySelectorAll('.person-name')
+    const personLastname = document.querySelectorAll('.person-lastname')
+    const personLPosition = document.querySelectorAll('.person-position')
+  
+    renderMembers(members, teamWrapper)
 
 
+
+    function renderMembers (array, wrapper) {
+        wrapper.innerHTML = ''
+        array.forEach(el => {
+            wrapper.innerHTML += 
+            `
+                <div class="slick-slide-wrapper" style="background-image: url(${el.memberImagePath})"><div class="about-person"><span class="person-name">${el.memberName}</span><span class="person-lastname">${el.memberLastname}</span><span class="person-position">${el.memberPosition}</span></div></div>
+            `
+        })
+        // <img src=${el.memberImagePath} alt="team member">
+    }
+    $('.meet-team-wrapper').slick({
+        // autoplay: true,
+        infinite: true,
+        dots: false,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 2,
+        centerMode: true,
+        responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 2,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 769,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+          // You can unslick at a given breakpoint now by adding:
+          // settings: "unslick"
+          // instead of a settings object
+        ]
+      });
+   
+}
 if (document.location.pathname == '/unilab-dictionary/dictionary-detailed.html') {
     const termExample = document.querySelector('#termExample')
     const exampleImg = document.querySelector('.example-img')
@@ -579,7 +675,6 @@ function renderData(array) {
             wordsCount = 5
         }
     array.forEach((element) => {
-    console.log(wordsCount, 'sityva')
     cardsWrapper.innerHTML += ''
         // console.log(element.Description)
         const card = document.createElement('div')
@@ -606,11 +701,4 @@ function renderData(array) {
                   </div>
     `
     })
-    if(cardsWrapper.children.length % 2 === 0) {
-        console.log('luwi', cardsWrapper.children.length % 2)
-        // cardsWrapper.style.justifyContent = 'space-around'
-    }else {
-        console.log('kenti', cardsWrapper.children.length)
-        // cardsWrapper.style.justifyContent = 'flex-start'
-    }
 }
