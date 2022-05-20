@@ -669,21 +669,59 @@ select{
     color: var(--main-font);
     font-size: 30px;
 }
-.slick-slide-wrapper img {
-    height: 100%;
-}
 .slick-slide-wrapper {
-    width: 260px;
+    position: relative;
     height: 260px;
+    margin-right: 16px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.slick-slide-wrapper::after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    background: rgba(0,0,0,.5);
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    top: 0;
+    left: 0;
+    position: absolute;
 }
 .slick-prev {
     z-index: 22222;
 }
-
-
-
-
-/* slick slider on about page */
+.about-person {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    z-index: 1010;
+    transform: translateX(-50%);
+    text-align: center;
+    white-space: nowrap;
+    font: normal normal 400 16px/19px firaGo-regular;
+    color: #fff;
+    transition: .3s ease-out;
+    opacity: 0;
+}
+.slick-slide-wrapper:hover .about-person {
+    opacity: 1;
+}
+.slick-slide-wrapper:hover::after {
+    opacity: 1;
+}
+.about-person span:not(:last-child) {
+    margin-bottom: 10px;
+}
 .background-svg {
     background-image: url(../media/jpg/error-layer.jpg);
     background-repeat: no-repeat;
