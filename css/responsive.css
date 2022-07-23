@@ -278,6 +278,8 @@
     }
     .term-of-week-footer .see-details {
         align-self: flex-end;
+        padding: 9px 16px 6px;
+        margin-top: 1.5rem;
     }
     .swiper-container {
         width: 90%;
@@ -304,6 +306,10 @@
         width: 260px;
         background-size: contain;
     }
+    .slick-slide {
+        margin: 0 auto 30px;
+    }
+
     .error-wrapper h1 {
         font-size: 18px;
         margin-top: 35px;
