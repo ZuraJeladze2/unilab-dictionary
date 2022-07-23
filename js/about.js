@@ -56,6 +56,7 @@ $(".meet-team-wrapper").slick({
     {
       breakpoint: 480,
       settings: {
+        centerMode: false,
         slidesToShow: 1,
         slidesToScroll: 1,
         dots: true,

@@ -375,7 +375,7 @@ body{
     background-color: var(--details);
     padding: 10px 15px;
     line-height: 19px;
-    border-radius: 5px; 
+    border-radius: 4px; 
     font-family: 'firaGo-regular';
     transition: .3s ease-out;
     white-space: nowrap;
