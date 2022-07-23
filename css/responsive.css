@@ -37,16 +37,28 @@
     .swiper{
         display: block;
     }
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: block;
+        height: 100%;
+    }
     .counter-wrapper {
         margin-top: 30px;
     }
-    #filter {
+    .select-wrapper {
+        width: 100%;
+        justify-content: flex-start;
+        margin: 0 0 1rem;
         top: 85px;
-        left: 180px;
+        left: 0;
+    }
+    #filter {
+        /* top: 85px;
+        left: 180px; */
     }
     #sort {
-        top: 85px;
-        left: 400px;
+        /* top: 85px;
+        left: 400px; */
     }
     .term-detailed .example-flexbox p {
         max-width: 490px;
@@ -79,6 +91,9 @@
     .term-of-week{
         padding: 20px 10px 10px 20px;
     }
+    .term-cards-wrapper{
+        margin-top: 100px;
+    }
     .term-card {
         width: 296px;
     }
@@ -109,6 +124,15 @@
     }
     .terms-button-wrapper {
         margin-left: 40px;
+    }
+
+    .swiper-button-next {
+        right: -1.8rem;
+        color: var(--card-bg);
+    }
+    .swiper-button-prev {
+        left: -1rem;
+        color: var(--card-bg);
     }
 }
 @media (max-width: 670px) {
@@ -222,16 +246,25 @@
     .nav-li:not(:first-child){
         margin-left: 8px;
     }
+
+    /* SELECT AND DROPDOWN STYLES */
+    .select-wrapper {
+        gap: 1rem;
+        margin: 1rem 0;
+        flex-direction: column;
+    }
     #filter {
+        margin-right: 0;
         padding-left: 0;
-        width: 116px;
-        left: 86px;
+        width: 100%;
     }
     #sort {
-        top: 120px;
-        left: 130px;
         padding-left: 0;
-        width: 135px;
+        width: 100%;
+    }
+    .custom-arrow,
+    .custom-arrow.last {
+        right: 1rem;
     }
     .counter-wrapper {
         margin-top: 60px;
@@ -246,12 +279,16 @@
     .term-of-week-footer .see-details {
         align-self: flex-end;
     }
+    .swiper-container {
+        width: 90%;
+        margin: 0 auto;
+    }
     .swiper-wrapper{
-        width: 88%;
+        width: 80%;
         padding-right: 40px;
     }
     .swiper {
-        padding: 0 25px ;
+        /* padding: 0 25px ; */
     }
     .example-img {
         width: 275px;
