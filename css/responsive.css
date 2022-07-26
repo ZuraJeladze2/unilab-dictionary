@@ -125,6 +125,9 @@
     .terms-button-wrapper {
         margin-left: 40px;
     }
+    .card-footer {
+        gap: 1rem;
+    }
 
     .swiper-button-next {
         right: -1.8rem;
@@ -288,9 +291,6 @@
     .swiper-wrapper{
         width: 80%;
         padding-right: 40px;
-    }
-    .swiper {
-        /* padding: 0 25px ; */
     }
     .example-img {
         width: 275px;
