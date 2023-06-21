@@ -488,7 +488,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column-reverse;
+    flex-direction: column;
     font: normal normal 400 var(--medium) firaGo-regular;
 }
 .footer-info{
