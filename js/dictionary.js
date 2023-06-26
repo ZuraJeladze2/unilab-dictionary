@@ -35,8 +35,10 @@ const cardsWrapper = document.querySelector('.term-cards-wrapper');
             scrollbar: {
               el: '.swiper-scrollbar',
             },
-            slidesPerView: 10,
-            slidesPerGroup: 3
+            slidesPerView: 8,
+            slidesPerGroup: 3,
+            spaceBetween: 13,
+            freeMode: true
           });
         // initiate first page on window load
         window.onload = () => {
